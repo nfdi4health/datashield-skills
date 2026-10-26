@@ -1,0 +1,14 @@
+{
+  "name": "datashield-skills",
+  "displayName": "DataSHIELD skills",
+  "version": "0.1.0",
+  "description": "Skills for developing DataSHIELD packages: client/server function pairs with disclosure control, DSLite tests, roxygen documentation the DataSHIELD way, and design notes for new functions.",
+  "author": {
+    "name": "NFDI4Health",
+    "url": "https://github.com/nfdi4health"
+  },
+  "homepage": "https://github.com/nfdi4health/datashield-skills",
+  "repository": "https://github.com/nfdi4health/datashield-skills",
+  "license": "GPL-3.0-only",
+  "keywords": ["datashield", "r", "federated-analysis", "dslite", "roxygen2", "testthat"]
+}

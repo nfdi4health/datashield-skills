@@ -1,0 +1,15 @@
+{
+  "name": "datashield-skills",
+  "description": "Claude Code skills for developing DataSHIELD packages.",
+  "owner": {
+    "name": "NFDI4Health",
+    "url": "https://github.com/nfdi4health"
+  },
+  "plugins": [
+    {
+      "name": "datashield-skills",
+      "source": "./",
+      "description": "Client/server function pairs, DSLite tests, roxygen documentation and design notes for DataSHIELD packages."
+    }
+  ]
+}
