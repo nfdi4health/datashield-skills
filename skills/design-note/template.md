@@ -13,7 +13,7 @@ What an analyst can't do today, and who needs it (use case, study, project).
 |---|---|---|
 | | | identical / similar, differs in … / none |
 
-Checked: <packages and versions searched>.
+Checked: <search terms and date in the catalogue; packages and versions read directly>.
 
 ## Method
 

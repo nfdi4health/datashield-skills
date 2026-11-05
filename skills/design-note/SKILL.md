@@ -21,6 +21,38 @@ this, or nearly. If one exists, the note says how the new one differs, or
 proposes extending the existing one instead. "No overlap" needs the
 packages and functions you checked.
 
+Start with the catalogue of all known DataSHIELD packages, rebuilt daily:
+<https://packages.datashield.org/packages.json>. It is about 1 MB, so
+search it rather than reading it whole. Try several terms: the method, its
+synonyms, the R function it mirrors.
+
+```r
+packages <- jsonlite::fromJSON("https://packages.datashield.org/packages.json", simplifyVector = FALSE)
+functions <- do.call(rbind, lapply(names(packages), function(name) {
+  rows <- packages[[name]]$repo$function_info
+  if (!is.list(rows) || length(rows) == 0) return(NULL)  # some packages have no function details
+  data.frame(
+    package = name,
+    status = packages[[name]]$input$status,
+    fun = vapply(rows, function(r) r$function_name, ""),
+    type = vapply(rows, function(r) r$architecture_type, ""),
+    title = vapply(rows, function(r) as.character(r$title), ""),
+    description = vapply(rows, function(r) as.character(r$description), "")
+  )
+}))
+functions[grepl("cox|survival", paste(functions$fun, functions$title, functions$description), ignore.case = TRUE), ]
+setdiff(names(packages), functions$package)  # packages not covered: check by hand
+```
+
+Then read the actual code of close matches: the catalogue has only short
+titles and descriptions. A match in a `retired` package is not a function
+people can use today, but its approach may still help.
+
+**The catalogue can show overlap, not rule it out.** Many functions have no
+title or description, and some packages and server functions are missing,
+so also look through the packages closest to the topic. If the catalogue
+can't be reached, say so in the note and search those packages directly.
+
 ## Method
 
 The statistical method, with a reference (paper, textbook, or the R
