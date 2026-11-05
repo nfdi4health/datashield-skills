@@ -1,0 +1,84 @@
+{
+  "repository": "nfdi4health/datashield-workflows",
+  "branch": "main",
+  "commit": "8ceb36604d3377807c6a1717e38d8a4b57ec0976",
+  "sources": [
+    {
+      "path": "config/test-categories.yml",
+      "skills": [
+        "dslite-tests"
+      ],
+      "blob": "f21919765ce2893e7330c5c58a8d2d07735ecd6f"
+    },
+    {
+      "path": "config/dslite-canned-datasets.yml",
+      "skills": [
+        "dslite-tests"
+      ],
+      "blob": "0c869af1bc8724fd4c9c197a4f427f5d3ed3a5b2"
+    },
+    {
+      "path": "config/test-role-guidance.yml",
+      "skills": [
+        "dslite-tests"
+      ],
+      "blob": "fb289bdd193e0adaac9a26ecaf9c09d40e13d661"
+    },
+    {
+      "path": "R/functions/tests/build_dslite_test_snippet.R",
+      "skills": [
+        "dslite-tests"
+      ],
+      "blob": "10d729fee7441fbbdd19d97a89e24820494a0be3"
+    },
+    {
+      "path": "R/functions/tests/ensure_dslite_setup_file.R",
+      "skills": [
+        "dslite-tests"
+      ],
+      "blob": "578d89eb37f80e99b40389a2eb6fb6edd8807442"
+    },
+    {
+      "path": "prompts/test-review-prompt.md",
+      "skills": [
+        "dslite-tests"
+      ],
+      "blob": "8ccef9c66e48b1435c4233d87f0caf8276a71d53"
+    },
+    {
+      "path": "config/datashield-role-guidance.yml",
+      "skills": [
+        "roxygen-docs"
+      ],
+      "blob": "34e213daea745bfd67b82129a555e0a1d9605fb4"
+    },
+    {
+      "path": "config/roxygen-style.yml",
+      "skills": [
+        "roxygen-docs"
+      ],
+      "blob": "0845cddc588f9ef8cb6cdd3de23f72753375433d"
+    },
+    {
+      "path": "config/datashield-example-env.yml",
+      "skills": [
+        "roxygen-docs"
+      ],
+      "blob": "af2599c64af686e9e1c5705ae8b0abf0fba06b55"
+    },
+    {
+      "path": "R/functions/roxygen/build_demo_login_snippet.R",
+      "skills": [
+        "roxygen-docs"
+      ],
+      "blob": "1c2a8360078dc918b533e33f3641b61647977863"
+    },
+    {
+      "path": "prompts/roxygen-review-prompt.md",
+      "skills": [
+        "roxygen-docs"
+      ],
+      "blob": "623986396601138ff5b1d660822ec2c7ca8cd32e"
+    }
+  ]
+}

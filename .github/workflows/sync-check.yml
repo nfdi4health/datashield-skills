@@ -1,0 +1,47 @@
+name: Skills sync check
+
+# Once a day: have files of datashield-workflows that the skills were written
+# from changed? sync/check-sync.mjs reads that repository's public hashes and
+# keeps one issue here current. It changes no skill. A push to sync/ runs it
+# at once, so recording a new state closes the issue straight away.
+on:
+  schedule:
+    - cron: '23 6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['sync/**', '.github/workflows/sync-check.yml']
+
+concurrency:
+  group: sync-check
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write   # opens, updates and closes the sync issue
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Test the check
+        run: node --test sync/check-sync.test.mjs
+
+      - name: Compare with datashield-workflows
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node sync/check-sync.mjs --report
+
+  # This repository can stay quiet for months, and GitHub then stops scheduled
+  # workflows after 60 days.
+  keepalive:
+    if: github.event_name == 'schedule'
+    permissions:
+      actions: write
+    uses: nfdi4health/datashield-workflows/.github/workflows/workflow-keepalive.yml@main

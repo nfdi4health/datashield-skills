@@ -64,10 +64,12 @@ files. In the client package, list the server package and DSLite in
 |---|---|
 | `arg` | errors and messages for missing, wrongly typed or invalid arguments |
 | `smk` | the function runs on the standard data and returns the expected structure and values |
-| `disc` | disclosive results are blocked, with the expected error |
+| `disc` | disclosive results are blocked, with the expected error or notice |
 | `discctrl` | behaviour under the server's disclosure settings (e.g. `nfilter.tab`) |
-| `math` | results agree with the same computation done locally in R |
+| `math` | results agree with the same computation done locally in R, or with known identities |
 | `expt` | values match known reference results |
+| `perf` | how fast repeated calls run, compared with reference rates |
+| `datachk` | the structure and content of the test datasets themselves |
 
 For every new function: at least `arg`, `smk` and — for aggregate functions
 — `disc`.
