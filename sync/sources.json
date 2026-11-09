@@ -89,6 +89,14 @@
         "roxygen-docs"
       ],
       "blob": null
+    },
+    {
+      "path": "config/ds-argument-rules.yml",
+      "skills": [
+        "client-server-pair",
+        "design-note"
+      ],
+      "blob": null
     }
   ]
 }
