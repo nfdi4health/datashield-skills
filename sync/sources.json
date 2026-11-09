@@ -79,6 +79,16 @@
         "roxygen-docs"
       ],
       "blob": "623986396601138ff5b1d660822ec2c7ca8cd32e"
+    },
+    {
+      "path": "config/ds-package-rules.yml",
+      "skills": [
+        "client-server-pair",
+        "design-note",
+        "dslite-tests",
+        "roxygen-docs"
+      ],
+      "blob": null
     }
   ]
 }
