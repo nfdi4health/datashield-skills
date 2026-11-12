@@ -11,29 +11,35 @@ package but not your change. Write it so they recognise the package in it.
 
 ## 1. The package first
 
-Before writing, read `CLAUDE.md` if there is one, `DESCRIPTION` (Imports,
+Before writing, read the package's own instructions (`CLAUDE.md`,
+`CONTRIBUTING.md`, a style section in its README), `DESCRIPTION` (Imports,
 Depends), `NAMESPACE`, and two or three functions like the one you change.
-Where the package does something consistently its own way (assignment with
-`=`, dotted names like `ds.mean`, a message helper), follow the package, even
-where this skill says otherwise. A `.lintr` file in the package decides
-style questions.
+In this order, these decide: the package's written instructions, its
+`.lintr`, what the package does consistently (assignment with `=`, dotted
+names like `ds.mean`, a message helper), and only then this skill.
 
 ## 2. Reuse before writing
 
-Prefer, in this order:
+Every line written by hand is a line someone has to read, check and keep
+working. So prefer an existing, maintained function to writing the same
+thing in base R:
 
 1. a helper the package already has (search `R/` for what you need);
-2. a function of a declared dependency: for clients the `ds.*()` functions
-   of `dsBaseClient` and other client packages, `DSI::` for connections;
-   for servers what `dsBase` already provides;
-3. base R and `stats`, `utils`;
-4. a new dependency — only when it saves real work. A few lines of base R
-   are cheaper than a new package every analyst and every study server has
-   to install. Never add a dependency to a server package lightly: each
-   study's admin has to install it.
+2. a function of a package it already depends on: for clients the `ds.*()`
+   functions of `dsBaseClient` and other client packages, `DSI::` for
+   connections; for servers what `dsBase` already provides; and any other
+   package in `Imports`;
+3. a function of a well-maintained package not yet declared, when it
+   replaces more than a few lines — but keep the number of dependencies
+   small: each one has to be installed by every analyst, and a server
+   package's by every study's admin. Say in your summary why it is worth
+   adding;
+4. base R, where nothing above fits.
 
 Re-implementing an existing function costs a reader the time to check that
 it does the same thing, and it drifts when the original is fixed.
+
+This balance is a first setting and will be revisited with feedback.
 
 ## 3. Efficiency where it matters
 
@@ -63,7 +69,8 @@ it does the same thing, and it drifts when the original is fixed.
 
 ## 5. Layout
 
-Unless the package or its `.lintr` says otherwise (tidyverse style):
+Unless the package's instructions, its `.lintr` or its consistent habit say
+otherwise (tidyverse style):
 
 - **Blank lines** separate the steps of a function: argument checks, the
   server call(s), building the result. No blank line right after `{` or
