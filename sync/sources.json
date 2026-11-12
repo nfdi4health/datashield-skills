@@ -97,6 +97,20 @@
         "design-note"
       ],
       "blob": null
+    },
+    {
+      "path": ".github/actions/implementer/lint-changes.R",
+      "skills": [
+        "r-code-style"
+      ],
+      "blob": null
+    },
+    {
+      "path": "prompts/implementer-maintainability.md",
+      "skills": [
+        "r-code-style"
+      ],
+      "blob": null
     }
   ]
 }
